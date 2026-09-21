@@ -1,28 +1,11 @@
-# GPX Viewer v2.3
+# GPX Viewer 2.4
 
-Statikus, mobilbarát GPX megjelenítő GitHub Pageshez.
+GitHub Pages javítás: a teljes alkalmazás saját CSS-e és JavaScriptje közvetlenül az `index.html` fájlba került. Így nincs `css/` vagy `js/` relatív útvonal, amit GitHub Pages alatt el lehet rontani.
 
-## v2.3 javítás
+## Telepítés
+1. A repository gyökerébe töltsd fel az `index.html` fájlt.
+2. A korábbi `css`, `js`, `sw.js` és `manifest.webmanifest` fájlok már nem szükségesek.
+3. GitHub Pages: Settings → Pages → Deploy from a branch → main → /(root).
+4. Az oldal betöltésekor a v2.4 megpróbálja eltávolítani a korábbi GPX Viewer service workereket és cache-eket.
 
-- Az OpenStreetMap publikus raster tile szervere teljesen kikerült a projektből.
-- A háttértérkép OpenFreeMap + MapLibre vector tile alapú.
-- Nincs API-kulcs.
-- A GPX feldolgozása továbbra is kizárólag a böngészőben történik.
-- A service worker nem cache-eli és nem proxyzza a külső térképes/CDN kéréseket.
-- Új cache verzió: `gpx-viewer-v2.3`.
-
-## GitHub Pages
-
-A mappa tartalmát másold a repository gyökerébe, majd Settings → Pages → Deploy from a branch → main → /(root).
-
-Frissítés után egyszer töltsd újra az oldalt. A v2.3 service worker aktiváláskor törli a korábbi alkalmazás-cache verziókat.
-
-## Térképadatok
-
-OpenFreeMap / OpenMapTiles, OpenStreetMap adatokkal. Az attribúció a térképen megjelenik.
-
-
-## v2.3
-- Interaktív elevation diagram távolság-, magasság- és meredekség-tooltipppel.
-- Egérrel és érintéssel is követhető; a térképen ugyanaz a pont kiemelődik.
-- Távolság- és min/max magasság-skála a diagramon.
+A Leaflet/MapLibre könyvtárak továbbra is CDN-ről töltődnek, a térkép pedig OpenFreeMapot használ.
